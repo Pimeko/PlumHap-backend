@@ -12,6 +12,7 @@ var user_controller = require('./controllers/UserController');
 
 // Middleware
 var test_middleware = require('./middleware/TestMiddleware');
+var cors_middleware = require('./middleware/CORSMiddleware');
 var auth_middleware = require('./middleware/AuthMiddleware');
 
 // For POST body
@@ -26,7 +27,7 @@ router.route('/')
 
 router.route('/statements')
   .get(auth_middleware.default, statement_controller.all)
-  .post(auth_middleware.default, statement_controller.post);
+  .post(cors_middleware.default, auth_middleware.default, statement_controller.post);
 
 router.route('/statements/:id')
   .get(auth_middleware.default, statement_controller.get)
@@ -34,14 +35,14 @@ router.route('/statements/:id')
 
 router.route('/activities')
   .get(auth_middleware.default, activity_controller.all)
-  .post(auth_middleware.default, activity_controller.post);
+  .post(cors_middleware.default, auth_middleware.default, activity_controller.post);
 
 router.route('/activities/:id')
   .get(auth_middleware.default, activity_controller.get)
   .put(auth_middleware.default, activity_controller.edit);
 
 router.route('/login')
-  .post(user_controller.login);
+  .post(cors_middleware.default, user_controller.login);
 
 router.route('/users/:id')
   .put(auth_middleware.correctUser, user_controller.update);
