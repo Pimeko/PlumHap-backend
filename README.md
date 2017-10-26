@@ -34,5 +34,5 @@ Each user contains a login and a password. The connection is done via JWT (JSON 
 
 |                  | Type | Request                        | Body    |           
 | --- | ---   | ---| --- |
-| Login 		   | POST | `/api/login`          | login, password                   |
+| Login 		   | POST | `/api/login`          | pseudo, password                   |
 | New password | PUT | `/api/users/id`         | new_password |

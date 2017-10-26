@@ -7,7 +7,7 @@ var exports = module.exports = {
   login: function(req, res) {
     User.findOne({
       where: {
-        login: req.body.login,
+        login: req.body.pseudo,
         password: req.body.password
       }
     }).then(user => {
