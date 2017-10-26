@@ -27,3 +27,12 @@ Each statement contains a data field.
 | New statement| POST | `/api/statements`         | data |
 | Get one 		   | GET |`/api/statements/id`       |                    |
 | Update statement| PUT | `/api/statements/id`         | data |
+
+User
+-------------
+Each user contains a login and a password.
+
+|                  | Type | Request                        | Body    |           
+| --- | ---   | ---| --- |
+| Login 		   | POST | `/api/login`          | login, password                   |
+| New password | PUT | `/api/login`         | login, password |

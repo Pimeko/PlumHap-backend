@@ -8,6 +8,7 @@ var db = require('./models');
 // Controllers
 var statement_controller = require('./controllers/StatementController');
 var activity_controller = require('./controllers/ActivityController');
+var user_controller = require('./controllers/UserController');
 
 // For POST body
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,8 +36,12 @@ router.route('/activities/:id')
   .get(activity_controller.get)
   .put(activity_controller.edit);
 
+router.route('/login')
+  .post(user_controller.login)
+  .put(user_controller.update);
+
 console.log("\u001b[2J\u001b[0;0H");
-console.log('Running Server on port 3000 ! '.yellow);
-app.listen(3000, function() {
+console.log('Running Server on port 8000 ! '.yellow);
+app.listen(8000, function() {
   db.sequelize.sync();
 });
