@@ -9,21 +9,21 @@ Activities
 -------------
 Each activity contains a name, the number of times it needs to be done and a bool precising if it is a default activity.
 
-|                  | Type | Request                        | Data      |                   
+|                  | Type | Request                        | Body      |                   
 | --- | ---   | ---| --- |
 | Get all 		   | GET | `/api/activities`          |                    |
-| Get one 		   | GET |`/api/activities/id`       |                    |
 | New activity| POST | `/api/activities`         | name, nb_times, default |
-| Update activity| PUT | `/api/activities`         | name, nb_times, default |
+| Get one 		   | GET |`/api/activities/id`       |                    |
+| Update activity| PUT | `/api/activities/id`         | name, nb_times, default |
 
 
 Statements
 -------------
 Each statement contains a data field.
 
-|                  | Type | Request                        | Data    |           
+|                  | Type | Request                        | Body    |           
 | --- | ---   | ---| --- |
 | Get all 		   | GET | `/api/statements`          |                    |
-| Get one 		   | GET |`/api/statements/id`       |                    |
 | New statement| POST | `/api/statements`         | data |
-| Update statement| PUT | `/api/statements`         | data |
+| Get one 		   | GET |`/api/statements/id`       |                    |
+| Update statement| PUT | `/api/statements/id`         | data |
