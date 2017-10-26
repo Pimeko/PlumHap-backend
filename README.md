@@ -35,4 +35,4 @@ Each user contains a login and a password.
 |                  | Type | Request                        | Body    |           
 | --- | ---   | ---| --- |
 | Login 		   | POST | `/api/login`          | login, password                   |
-| New password | PUT | `/api/login`         | login, password |
+| New password | PUT | `/api/login`         | login, password, new_password |
