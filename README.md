@@ -30,9 +30,9 @@ Each statement contains a data field.
 
 User
 -------------
-Each user contains a login and a password.
+Each user contains a login and a password. The connection is done via JWT (JSON Web Token).
 
 |                  | Type | Request                        | Body    |           
 | --- | ---   | ---| --- |
 | Login 		   | POST | `/api/login`          | login, password                   |
-| New password | PUT | `/api/login`         | login, password, new_password |
+| New password | PUT | `/api/users/id`         | new_password |
