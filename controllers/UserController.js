@@ -12,7 +12,7 @@ var exports = module.exports = {
       }
     }).then(user => {
       if (user == null) {
-        res.json({ success: false, message: "Invalid login/password."});
+        res.json({ success: false, error: "Invalid login/password."});
       }
       else {
         const payload = {
@@ -22,7 +22,7 @@ var exports = module.exports = {
         var token = jwt.sign(
           payload,
           config.jwt_secret);
-        res.json({ success: true, message: token});
+        res.send({ success: true, token: token, id: user.id});
       }
     })
   },
@@ -38,7 +38,7 @@ var exports = module.exports = {
       }
     }).then(user => {
       if (user == null) {
-        res.json({ success: false, "message" : "Invalid login/password."});
+        res.json({ success: false, "error" : "Invalid login/password."});
       }
       else {
         user.password = req.body.new_password;

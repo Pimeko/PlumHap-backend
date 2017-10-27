@@ -6,7 +6,10 @@ var exports = module.exports = {
   all: function(req, res) {
     Statement.findAll()
       .then(function (statements) {
-        res.json(statements);
+        res.json({success: true, statements});
+      })
+      .catch(function (error) {
+        res.json({success: false, error});
       });
   },
 
@@ -23,8 +26,11 @@ var exports = module.exports = {
     Statement.findOne({
       where: {id: req.params.id}
     }).then(statement => {
-      res.send(statement);
+      res.json({success:true, statement});
     })
+    .catch(function (error) {
+      res.json({success: false, error});
+    });
   },
 
   edit: function(req, res) {
@@ -36,6 +42,18 @@ var exports = module.exports = {
         res.send(statement);
       })
     })
-  }
+  },
 
+  delete: function(req, res) {
+    Statement.findOne({
+      where: {id: req.params.id}
+    }).then(statement => {
+      statement.destroy().then(function() {
+        res.json({ success: true });
+      })
+      .catch(function (error) {
+        res.json({ success: false, error});
+      })
+    })
+  }
 };

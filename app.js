@@ -31,7 +31,8 @@ router.route('/statements')
 
 router.route('/statements/:id')
   .get(auth_middleware.default, statement_controller.get)
-  .put(auth_middleware.default, statement_controller.edit);
+  .put(auth_middleware.default, statement_controller.edit)
+  .delete(auth_middleware.default, statement_controller.delete);
 
 router.route('/activities')
   .get(auth_middleware.default, activity_controller.all)
