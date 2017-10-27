@@ -9,7 +9,7 @@ Activities
 -------------
 Each activity contains a name, the number of times it needs to be done and a bool precising if it is a default activity.
 
-|                  | Type | Request                        | Body      |                   
+| Description | Type | Request                        | Body      |                   
 | --- | ---   | ---| --- |
 | Get all 		   | GET | `/api/activities`          |                    |
 | New activity| POST | `/api/activities`         | name, nb_times, default |
@@ -22,7 +22,7 @@ Statements
 -------------
 Each statement contains a data field.
 
-|                  | Type | Request                        | Body    |           
+| Description | Type | Request                        | Body    |           
 | --- | ---   | ---| --- |
 | Get all 		   | GET | `/api/statements`          |                    |
 | New statement| POST | `/api/statements`         | data |
@@ -33,7 +33,7 @@ User
 -------------
 Each user contains a login and a password. The connection is done via JWT (JSON Web Token).
 
-|                  | Type | Request                        | Body    |           
+| Description | Type | Request                        | Body    |           
 | --- | ---   | ---| --- |
 | Login 		   | POST | `/api/login`          | pseudo, password                   |
 | New password | PUT | `/api/users/id`         | new_password |
