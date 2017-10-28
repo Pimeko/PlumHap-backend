@@ -16,9 +16,11 @@ var exports = module.exports = {
   post: function(req, res) {
     Statement.create({
       data: req.body.data
+    }).then(statement => {
+      res.json({success:true, statement});
     })
-    .then(function (user) {
-      res.json(user);
+    .catch(function (error) {
+      res.json({success: false, error});
     });
   },
 
