@@ -15,7 +15,6 @@ Each activity contains a name, the number of times it needs to be done and a boo
 | New activity| POST | `/api/activities`         | name, nb_times, default |
 | Get one 		   | GET |`/api/activities/id`       |                    |
 | Update activity| PUT | `/api/activities/id`         | name, nb_times, default |
-| Delete activity| DELETE | `/api/activities/id`         | |
 
 
 Statements
@@ -28,6 +27,7 @@ Each statement contains a data field.
 | New statement| POST | `/api/statements`         | data |
 | Get one 		   | GET |`/api/statements/id`       |                    |
 | Update statement| PUT | `/api/statements/id`         | data |
+| Delete statement| DELETE | `/api/statements/id`         | |
 
 User
 -------------
