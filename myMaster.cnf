@@ -1,0 +1,12 @@
+[mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.socket
+
+symbolic-links=0
+
+[mysqld_safe]
+server-id = 1
+bind-address = IP_MASTER
+log-bin =   /var/log/mysql/mysql-bin.log
+log-error = /var/log/mysql/mysql-error.log
+binlog-do-db = DBName
