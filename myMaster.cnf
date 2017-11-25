@@ -9,4 +9,5 @@ server-id = 1
 bind-address = IP_MASTER
 log-bin =   /var/log/mysql/mysql-bin.log
 log-error = /var/log/mysql/mysql-error.log
+pid-file = /var/run/mysqld/mysqld.pid
 binlog-do-db = DBName
