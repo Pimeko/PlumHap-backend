@@ -2,9 +2,8 @@
 datadir=/var/lib/mysql
 socket=/var/lib/mysql/mysql.sock
 server-id = 1
-log-bin =   /var/log/mysql/mysql-bin.log
-log-error = /var/log/mysql/mysql-error.log
-binlog-do-db = DBName
+log_bin =   /var/log/mysql/mysql-bin.log
+binlog_do_db = DBName
 
 symbolic-links=0
 

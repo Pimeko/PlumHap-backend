@@ -1,13 +1,8 @@
 [mysqld]
 datadir=/var/lib/mysql
 socket=/var/lib/mysql/mysql.sock
-
+server-id = 2
 symbolic-links=0
 
 [mysqld_safe]
-server-id = 2
 pid-file = /var/run/mysqld/mysqld.pid
-
-master-host = IP_MASTER
-master-user = "slave"
-master-port = 3306
