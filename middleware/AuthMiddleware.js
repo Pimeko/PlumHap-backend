@@ -9,7 +9,11 @@ var exports = module.exports = {
     if (token) {
       jwt.verify(token, config.jwt_secret, function(err, decoded) {
         if (err) {
-          return res.json({ success: false, message: 'Failed to authenticate token.' });
+          return res.json({
+            success: false,
+            token_error: true,
+            message: 'Failed to authenticate token.'
+          });
         } else {
           next();
         }
@@ -18,6 +22,7 @@ var exports = module.exports = {
     } else {
       return res.status(403).send({
           success: false,
+          token_error: true,
           message: 'No token provided.'
       });
     }
@@ -30,7 +35,11 @@ var exports = module.exports = {
     if (token) {
       jwt.verify(token, config.jwt_secret, function(err, decoded) {
         if (err) {
-          return res.json({ success: false, message: 'Failed to authenticate token.' });
+          return res.json({
+            success: false,
+            token_error: true,
+            message: 'Failed to authenticate token.'
+          });
         } else {
           if (req.params.id != decoded.id) {
             return res.json({ success: false, message: 'Wrong user'});
@@ -42,6 +51,7 @@ var exports = module.exports = {
     } else {
       return res.status(403).send({
           success: false,
+          token_error: true,
           message: 'No token provided.'
       });
     }

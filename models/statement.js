@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Statement = sequelize.define('Statement', {
-    data: DataTypes.STRING
+    message: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {

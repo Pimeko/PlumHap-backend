@@ -4,40 +4,71 @@ var Activity = db.Activity;
 var exports = module.exports = {
   all: function(req, res) {
     Activity.findAll()
-      .then(function (statements) {
-        res.json(statements);
-      });
+    .then(function (activities) {
+      res.json({success: true, list: activities});
+    })
+    .catch(function (error) {
+      res.json({success: false, error});
+    });
   },
 
   post: function(req, res) {
     Activity.create({
-      name: req.body.name,
+      title: req.body.title,
       nb_times: req.body.nb_times,
       default: req.body.default,
+      description: req.body.description,
+      level: req.body.level,
     })
-    .then(function (user) {
-      res.json(user);
+    .then(obj => {
+      res.json({success:true, obj});
     })
+    .catch(function (error) {
+      res.json({success: false, error});
+    });
   },
 
   get: function(req, res) {
     Activity.findOne({
       where: {id: req.params.id}
-    }).then(activity => {
-      res.send(activity);
     })
+    .then(obj => {
+      res.json({success:true, obj});
+    })
+    .catch(function (error) {
+      res.json({success: false, error});
+    });
   },
 
   edit: function(req, res) {
     Activity.findOne({
       where: {id: req.params.id}
     }).then(activity => {
-      activity.name = req.body.name;
+      activity.title = req.body.title;
       activity.nb_times = req.body.nb_times;
       activity.default = req.body.default;
+      activity.description = req.body.description;
+      activity.level = req.body.level;
 
-      activity.save().then(function() {
-        res.send(activity);
+      activity.save()
+      .then(() => {
+        res.json({success:true});
+      })
+      .catch(function (error) {
+        res.json({success: false, error});
+      })
+    })
+  },
+
+  delete: function(req, res) {
+    Activity.findOne({
+      where: {id: req.params.id}
+    }).then(activity => {
+      activity.destroy().then(function() {
+        res.json({ success: true });
+      })
+      .catch(function (error) {
+        res.json({ success: false, error});
       })
     })
   }

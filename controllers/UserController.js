@@ -34,7 +34,8 @@ var exports = module.exports = {
 
     User.findOne({
       where: {
-        id: user.id
+        id: user.id,
+        password: req.body.new_password
       }
     }).then(user => {
       if (user == null) {

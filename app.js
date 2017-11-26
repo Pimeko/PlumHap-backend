@@ -40,7 +40,8 @@ router.route('/activities')
 
 router.route('/activities/:id')
   .get(auth_middleware.default, activity_controller.get)
-  .put(auth_middleware.default, activity_controller.edit);
+  .put(auth_middleware.default, activity_controller.edit)
+  .delete(auth_middleware.default, activity_controller.delete);
 
 router.route('/login')
   .post(cors_middleware.default, user_controller.login);

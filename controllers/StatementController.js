@@ -6,7 +6,7 @@ var exports = module.exports = {
   all: function(req, res) {
     Statement.findAll()
       .then(function (statements) {
-        res.json({success: true, statements});
+        res.json({success: true, list: statements});
       })
       .catch(function (error) {
         res.json({success: false, error});
@@ -15,9 +15,9 @@ var exports = module.exports = {
 
   post: function(req, res) {
     Statement.create({
-      data: req.body.data
-    }).then(statement => {
-      res.json({success:true, statement});
+      data: req.body.data.message
+    }).then(obj => {
+      res.json({success:true, obj});
     })
     .catch(function (error) {
       res.json({success: false, error});
@@ -28,7 +28,7 @@ var exports = module.exports = {
     Statement.findOne({
       where: {id: req.params.id}
     }).then(statement => {
-      res.json({success:true, statement});
+      res.json({success:true, obj: statement});
     })
     .catch(function (error) {
       res.json({success: false, error});
@@ -39,10 +39,13 @@ var exports = module.exports = {
     Statement.findOne({
       where: {id: req.params.id}
     }).then(statement => {
-      statement.data = req.body.data;
+      statement.data = req.body.data.message;
       statement.save().then(function() {
-        res.send(statement);
+        res.json({success:true, obj: statement});
       })
+      .catch(function (error) {
+        res.json({success: false, error});
+      });
     })
   },
 

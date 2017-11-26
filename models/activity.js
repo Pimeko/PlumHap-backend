@@ -1,8 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Activity = sequelize.define('Activity', {
-    name: DataTypes.STRING,
+    title: DataTypes.STRING,
+    description: DataTypes.STRING,
     nb_times: DataTypes.INTEGER,
+    level: DataTypes.INTEGER,
     default: DataTypes.BOOLEAN
   }, {
     classMethods: {
