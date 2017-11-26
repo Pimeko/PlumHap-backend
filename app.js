@@ -4,6 +4,7 @@ var app = express();
 var router = express.Router();
 var colors = require('colors');
 var db = require('./models');
+var cors = require('cors')
 
 // Controllers
 var statement_controller = require('./controllers/StatementController');
@@ -19,11 +20,17 @@ var auth_middleware = require('./middleware/AuthMiddleware');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api', router);
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+var whitelist = [
+    'http://0.0.0.0:3000',
+];
+var corsOptions = {
+    origin: function(origin, callback){
+        var originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+        callback(null, originIsWhitelisted);
+    },
+    credentials: true
+};
+app.use(cors(corsOptions));
 
 router.route('/')
   .get(test_middleware.default, function(req, res) {

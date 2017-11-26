@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "colors": "^1.1.2",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "jsonwebtoken": "^8.1.0",
     "mysql2": "^1.4.2",
