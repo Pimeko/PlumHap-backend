@@ -15,7 +15,7 @@ var exports = module.exports = {
 
   post: function(req, res) {
     Statement.create({
-      data: req.body.data.message
+      message: req.body.data.message
     }).then(obj => {
       res.json({success:true, obj});
     })
@@ -39,7 +39,8 @@ var exports = module.exports = {
     Statement.findOne({
       where: {id: req.params.id}
     }).then(statement => {
-      statement.data = req.body.data.message;
+      statement.message = req.body.data.message;
+
       statement.save().then(function() {
         res.json({success:true, obj: statement});
       })
