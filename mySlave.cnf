@@ -2,7 +2,6 @@
 datadir=/var/lib/mysql
 socket=/var/lib/mysql/mysql.sock
 server-id = 2
-symbolic-links=0
 
 [mysqld_safe]
 pid-file = /var/run/mysqld/mysqld.pid

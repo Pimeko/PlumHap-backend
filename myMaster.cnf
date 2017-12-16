@@ -1,12 +1,8 @@
 [mysqld]
-datadir=/var/lib/mysql
-socket=/var/lib/mysql/mysql.sock
 server-id = 1
 log_bin =   /var/log/mysql/mysql-bin.log
 bind-address = IPMaster
 binlog_do_db = DBName
-
-symbolic-links=0
 
 [mysqld_safe]
 pid-file = /var/run/mysqld/mysqld.pid
