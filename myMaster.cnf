@@ -2,7 +2,6 @@
 server-id = 1
 datadir=/var/lib/mysql
 socket=/var/lib/mysql/mysql.sock
-log_bin =   /var/log/mysql/mysql-bin.log
 bind-address = IPMaster
 binlog_do_db = DBName
 
