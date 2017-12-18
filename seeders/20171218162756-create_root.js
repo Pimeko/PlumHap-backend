@@ -2,14 +2,14 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('users', [{
+    return queryInterface.bulkInsert('Users', [{
       login: 'admin',
       password: 'admin'
     }], {});
   },
 
   down: (queryInterface, Sequelize) => {
-    queryInterface.bulkDelete('users', [{
+    queryInterface.bulkDelete('Users', [{
       login :'admin'
     }])
   }
